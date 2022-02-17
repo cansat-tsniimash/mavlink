@@ -115,7 +115,7 @@
       <entry value="3" name="STATE_REQUEST">
         <description>In response to this command antenna system have to send state message</description>
       </entry>
-    </enum>AS_GPS_FILTER
+    </enum>
     <enum name="AS_GPS_FILTER">
       <description>Antenna system commands list</description>
       <entry value="0" name="NO_FILTER">
@@ -440,9 +440,9 @@
       <field type="uint8_t"  name="time_base">time base for on board time service</field>
       <field type="uint16_t" name="time_syncs_attempted">How many times a world time correction was attempted</field>
       <field type="uint16_t" name="time_syncs_performed">How many times a world time correction was performed</field>
-      <field type="uint32_t"  name="last_time_sync_time_steady" unit="ms">timestamp of last performed time correction</field>
-      <field type="int64_t"  name="last_time_sync_delta_s" unit="s">Correction delta in seconds during last time sync</field>
-      <field type="int32_t"  name="last_time_sync_delta_us" unit="us">Correction delta in useconds during last time sync</field>
+      <field type="uint32_t"  name="last_time_sync_time_steady" units="ms">timestamp of last performed time correction</field>
+      <field type="int64_t"  name="last_time_sync_delta_s" units="s">Correction delta in seconds during last time sync</field>
+      <field type="int32_t"  name="last_time_sync_delta_us" units="us">Correction delta in useconds during last time sync</field>
     </message>
 
     <message id="50205" name="PLD_MS5611_DATA">
@@ -630,9 +630,9 @@
       <field type="uint8_t"  name="time_base">time base for on board time service</field>
       <field type="uint16_t" name="time_syncs_attempted">How many times a world time correction was attempted</field>
       <field type="uint16_t" name="time_syncs_performed">How many times a world time correction was performed</field>
-      <field type="uint32_t"  name="last_time_sync_time_steady" unit="ms">timestamp of last performed time correction</field>
-      <field type="int64_t"  name="last_time_sync_delta_s" unit="s">Correction delta in seconds during last time sync</field>
-      <field type="int32_t"  name="last_time_sync_delta_us" unit="us">Correction delta in useconds during last time sync</field>
+      <field type="uint32_t"  name="last_time_sync_time_steady" units="ms">timestamp of last performed time correction</field>
+      <field type="int64_t"  name="last_time_sync_delta_s" units="s">Correction delta in seconds during last time sync</field>
+      <field type="int32_t"  name="last_time_sync_delta_us" units="us">Correction delta in useconds during last time sync</field>
     </message>
     
 
