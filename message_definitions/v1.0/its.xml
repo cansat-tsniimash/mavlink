@@ -386,6 +386,95 @@
       <field type="float" name="light_dir_error">Error calculated by internal algorithm</field>
     </message>
 
+    <message id="50105" name="SINS_MONHW">
+      <description>
+        Diagnostic message mon-hw ubx receiver
+      </description>
+
+      <field type="uint64_t" name="time_s" units="s">Time since the Unix epoch</field>
+      <field type="uint32_t" name="time_us" units="us">Millionth of a second</field>
+      <field type="uint32_t" name="time_steady" units="ms">Steady time scale</field>
+
+      <field type="uint16_t" name="noise_per_ms">
+        Noise level as measured by GPS core
+      </field>
+      <field type="uint16_t" name="agc_cnt">
+        AGC Monitor (counts SIGHI xor SIGLO, range 0 to 8191)
+      </field>
+      <field type="uint8_t" name="a_status">
+        Status of the Antenna Supervisor State Machine (0=INIT, 1=DONTKNOW, 2=OK, 3=SHORT, 4=OPEN)
+      </field>
+      <field type="uint8_t" name="a_power">
+        Current PowerStatus of Antenna (0=OFF, 1=ON, 2=DONTKNOW)
+      </field>
+      <field type="uint8_t" name="jam_ind">
+        Jamming indicator, scaled (0 = no jamming, 255 = strong jamming)
+      </field>
+    </message>
+
+    <message id="50106" name="SINS_MONHW2">
+      <description>
+        Diagnostic message mon-hw2 ubx receiver
+      </description>
+
+      <field type="uint64_t" name="time_s" units="s">Time since the Unix epoch</field>
+      <field type="uint32_t" name="time_us" units="us">Millionth of a second</field>
+      <field type="uint32_t" name="time_steady" units="ms">Steady time scale</field>
+
+      <field type="int8_t" name="ofs_i">
+        Disballace of I part of complex signal (-128..127)
+      </field>
+      <field type="uint8_t" name="mag_i">
+        Magnitude of I part of complex signal
+        (0 - no signal, 255 - max signal)
+      </field>
+      <field type="int8_t" name="ofs_q">
+        Disballace of Q part of complex signal (-128..127)
+      </field>
+      <field type="uint8_t" name="mag_q">
+        Magnitude of Q part of complex signal
+        (0 - no signal, 255 - max signal)
+      </field>
+      <field type="uint32_t" name="post_status">
+        POST check device status
+      </field>
+    </message>
+
+    <message id="50107" name="SINS_NAVSVINFO">
+      <description>
+         Space Vehicle Information
+      </description>
+
+      <field type="uint64_t" name="time_s" units="s">Time since the Unix epoch</field>
+      <field type="uint32_t" name="time_us" units="us">Millionth of a second</field>
+      <field type="uint32_t" name="time_steady" units="ms">Steady time scale</field>
+
+      <field type="uint8_t" name="num_ch">Number of channels</field>
+
+      <!-- Сделаем тут много записей для каждого сообщения
+           Много потому что мавлинк умеет оптимизировать нули в конце сообщения
+           и если спутников будет меньше чем можно - они не будут занимать линее место -->
+      <!-- Определим только 4 спутника, это необходимый минимум для построения 3d фикса -->
+      <field type="uint8_t" name="svid_0">Satellite 0 ID</field>
+      <field type="uint8_t" name="flags_0">Various flags</field>
+      <field type="uint8_t" name="quality_0">Sattelite usage and signal quality</field>
+      <field type="uint8_t" name="cno_0">Carrier to Noise Ratio (Signal Strength)</field>
+
+      <field type="uint8_t" name="svid_1">Satellite 1 ID</field>
+      <field type="uint8_t" name="flags_1">Various flags</field>
+      <field type="uint8_t" name="quality_1">Sattelite usage and signal quality</field>
+      <field type="uint8_t" name="cno_1">Carrier to Noise Ratio (Signal Strength)</field>
+
+      <field type="uint8_t" name="svid_2">Satellite 2 ID</field>
+      <field type="uint8_t" name="flags_2">Various flags</field>
+      <field type="uint8_t" name="quality_2">Sattelite usage and signal quality</field>
+      <field type="uint8_t" name="cno_2">Carrier to Noise Ratio (Signal Strength)</field>
+
+      <field type="uint8_t" name="svid_3">Satellite 3 ID</field>
+      <field type="uint8_t" name="flags_3">Various flags</field>
+      <field type="uint8_t" name="quality_3">Sattelite usage and signal quality</field>
+      <field type="uint8_t" name="cno_3">Carrier to Noise Ratio (Signal Strength)</field>
+    </message>
 
     <!--  Payload messages. Id range: 50200 - 50299  -->
     <message id="50200" name="PLD_BME280_DATA">
