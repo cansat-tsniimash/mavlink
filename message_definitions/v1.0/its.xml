@@ -455,25 +455,60 @@
            Много потому что мавлинк умеет оптимизировать нули в конце сообщения
            и если спутников будет меньше чем можно - они не будут занимать линее место -->
       <!-- Определим только 4 спутника, это необходимый минимум для построения 3d фикса -->
+      <!-- В телеметрию нужно отправлять 4 спутника с самым сильным сигналом ? -->
       <field type="uint8_t" name="svid_0">Satellite 0 ID</field>
       <field type="uint8_t" name="flags_0">Various flags</field>
-      <field type="uint8_t" name="quality_0">Sattelite usage and signal quality</field>
+      <field type="uint8_t" name="quality_0">Satellite usage and signal quality</field>
       <field type="uint8_t" name="cno_0">Carrier to Noise Ratio (Signal Strength)</field>
 
       <field type="uint8_t" name="svid_1">Satellite 1 ID</field>
       <field type="uint8_t" name="flags_1">Various flags</field>
-      <field type="uint8_t" name="quality_1">Sattelite usage and signal quality</field>
+      <field type="uint8_t" name="quality_1">Satellite usage and signal quality</field>
       <field type="uint8_t" name="cno_1">Carrier to Noise Ratio (Signal Strength)</field>
 
       <field type="uint8_t" name="svid_2">Satellite 2 ID</field>
       <field type="uint8_t" name="flags_2">Various flags</field>
-      <field type="uint8_t" name="quality_2">Sattelite usage and signal quality</field>
+      <field type="uint8_t" name="quality_2">Satellite usage and signal quality</field>
       <field type="uint8_t" name="cno_2">Carrier to Noise Ratio (Signal Strength)</field>
 
       <field type="uint8_t" name="svid_3">Satellite 3 ID</field>
       <field type="uint8_t" name="flags_3">Various flags</field>
-      <field type="uint8_t" name="quality_3">Sattelite usage and signal quality</field>
+      <field type="uint8_t" name="quality_3">Satellite usage and signal quality</field>
       <field type="uint8_t" name="cno_3">Carrier to Noise Ratio (Signal Strength)</field>
+    </message>
+
+    <message id="50108" name="SINS_RXMSVSI">
+      <description>
+         Sattelite status info
+      </description>
+
+      <field type="uint64_t" name="time_s" units="s">Time since the Unix epoch</field>
+      <field type="uint32_t" name="time_us" units="us">Millionth of a second</field>
+      <field type="uint32_t" name="time_steady" units="ms">Steady time scale</field>
+
+      <field type="uint8_t" name="num_vis">Number of visiblle satellites</field>
+      <field type="uint8_t" name="num_ch">Number of satellite data blocs</field>
+
+      <!-- Сделаем тут много записей для каждого сообщения
+           Много потому что мавлинк умеет оптимизировать нули в конце сообщения
+           и если спутников будет меньше чем можно - они не будут занимать линее место -->
+      <!-- Определим только 4 спутника, это необходимый минимум для построения 3d фикса -->
+      <!-- В телеметрию нужно скидывать 4 спутника со самыми свежими эфемиридами ? -->
+      <field type="uint8_t" name="svid_0">Satellite 0 ID</field>
+      <field type="uint8_t" name="svflag_0">Information flags</field>
+      <field type="uint8_t" name="age_0">Ephemierides and almanach age</field>
+
+      <field type="uint8_t" name="svid_1">Satellite 1 ID</field>
+      <field type="uint8_t" name="svflag_1">Information flags</field>
+      <field type="uint8_t" name="age_1">Ephemierides and almanach age</field>
+
+      <field type="uint8_t" name="svid_2">Satellite 2 ID</field>
+      <field type="uint8_t" name="svflag_2">Information flags</field>
+      <field type="uint8_t" name="age_2">Ephemierides and almanach age</field>
+
+      <field type="uint8_t" name="svid_3">Satellite 3 ID</field>
+      <field type="uint8_t" name="svflag_3">Information flags</field>
+      <field type="uint8_t" name="age_3">Ephemierides and almanach age</field>
     </message>
 
     <!--  Payload messages. Id range: 50200 - 50299  -->
