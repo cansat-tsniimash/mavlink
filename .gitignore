@@ -28,3 +28,6 @@ include/
 *.pyc
 include/mavlink/v1.0
 .idea
+
+
+generated/

@@ -135,7 +135,12 @@ configure_file(config.h.in config.h)
 install(FILES ${CMAKE_BINARY_DIR}/config.h DESTINATION include/${PROJECT_NAME} COMPONENT Dev)
 
 # mavgen location for mavlink generation
-set(mavgen_EXECUTABLE_WITH_PYTHON_INVOCATION ${CMAKE_COMMAND} -E env "PYTHONPATH=$ENV{PYTHONPATH}:${CMAKE_CURRENT_SOURCE_DIR}" ${PYTHON_EXECUTABLE} -m pymavlink.tools.mavgen)
+if (UNIX)
+  set(PATH_PATHSEP ":")
+else()
+  set(PATH_PATHSEP "\\\;")
+endif()
+set(mavgen_EXECUTABLE_WITH_PYTHON_INVOCATION ${CMAKE_COMMAND} -E env "PYTHONPATH=$ENV{PYTHONPATH}${PATH_PATHSEP}${CMAKE_CURRENT_SOURCE_DIR}" ${PYTHON_EXECUTABLE} -m pymavlink.tools.mavgen)
 if(USE_SYSTEM_PYMAVLINK)
     find_program (
         mavgen_EXECUTABLE
@@ -162,7 +167,7 @@ macro(generateMavlink version definitions)
                                          --wire-protocol=${version}
                                          --output=include/v${version}
                                          ${definitionAbsPath}
-            COMMAND touch ${targetName}-stamp
+            COMMAND ${CMAKE_COMMAND} -E touch ${targetName}-stamp
         )
         add_custom_target(${targetName} ALL DEPENDS ${targetName}-stamp)
     endforeach()
