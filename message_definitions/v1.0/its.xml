@@ -328,6 +328,8 @@
 
       <field type="float[3]" name="accel">accelerations</field>
       <field type="float[3]" name="compass">magnetometer vector</field>
+      <field type="float[3]" name="magn_raw">uncallibrated magnetometer vector</field>
+      <field type="float[3]" name="gyro">gyro data</field>
       <field type="float[10]" name="light_diodes">value of light diodes</field>
       
       <field type="float[3]" name="light_dir_real">Direction of light calculated by SolTrack using GPS data in reference to Earth (Spherical)</field>
