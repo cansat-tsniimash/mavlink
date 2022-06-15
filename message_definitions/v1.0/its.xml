@@ -728,7 +728,7 @@
     </message>
 
 
-	<!--  Antenna system messages. Id range: 50400 - 50499  -->
+	<!--  PFU(ARK). Id range: 50400 - 50499  -->
     <message id="50400" name="ARK_STATS">
       <description>
         This message contains internal statistics of ARK subsystem
@@ -747,6 +747,69 @@
       <field type="uint32_t"  name="last_time_sync_time_steady" units="ms">timestamp of last performed time correction</field>
       <field type="int64_t"  name="last_time_sync_delta_s" units="s">Correction delta in seconds during last time sync</field>
       <field type="int32_t"  name="last_time_sync_delta_us" units="us">Correction delta in useconds during last time sync</field>
+    </message>
+    <message id="50401" name="ARK_DCDC_STATS">
+      <description>
+        This message contains statistics of DC-DC of ARK subsystem
+      </description>
+
+      <field type="uint64_t" name="time_s" units="s">Time since the Unix epoch</field>
+      <field type="uint32_t" name="time_us" units="us">Millionth of a second</field>
+      <field type="uint32_t" name="time_steady" units="ms">Steady time scale</field>
+
+      <field type="uint8_t" name="state" units="ms">State of DC-DC</field>
+
+      <field type="uint32_t" name="dignostics" units="ms">Bit-field of Diagnostics</field>
+      
+      <field type="uint32_t" name="error_io_fail_count">Occurance count of error io_fail</field>
+      <field type="uint32_t" name="error_io_fail_last_time">Last time of occurance of error io_fail</field>
+      
+      <field type="uint32_t" name="error_input_over_current_count">Occurance count of error input_over_current</field>
+      <field type="uint32_t" name="error_input_over_current_last_time">Last time of occurance of error input_over_current</field>
+      
+      <field type="uint32_t" name="error_input_over_voltage_count">Occurance count of error input_over_voltage</field>
+      <field type="uint32_t" name="error_input_over_voltage_last_time">Last time of occurance of error input_over_voltage</field>
+      
+      <field type="uint32_t" name="error_input_power_fail_count">Occurance count of error input_power_fail</field>
+      <field type="uint32_t" name="error_input_power_fail_last_time">Last time of occurance of error input_power_fail</field>
+      
+      <field type="uint32_t" name="error_pgs_not_ok_count">Occurance count of error pgs_not_ok</field>
+      <field type="uint32_t" name="error_pgs_not_ok_last_time">Last time of occurance of error pgs_not_ok</field>
+      
+      <field type="uint32_t" name="error_temp_warn_count">Occurance count of error temp_warn</field>
+      <field type="uint32_t" name="error_temp_warn_last_time">Last time of occurance of error temp_warn</field>
+      
+      <field type="uint32_t" name="error_die_temp_warn_count">Occurance count of error die_temp_warn</field>
+      <field type="uint32_t" name="error_die_temp_warn_last_time">Last time of occurance of error die_temp_warn</field>
+      
+      <field type="uint32_t" name="error_forced_buck_count">Occurance count of error forced_buck</field>
+      <field type="uint32_t" name="error_forced_buck_last_time">Last time of occurance of error forced_buck</field>
+      
+      <field type="uint32_t" name="error_sas_disable_supply_count">Occurance count of error sas_disable_supply</field>
+      <field type="uint32_t" name="error_sas_disable_supply_last_time">Last time of occurance of error sas_disable_supply</field>
+      
+      <field type="uint32_t" name="error_pgb_not_ok_count">Occurance count of error pgb_not_ok</field>
+      <field type="uint32_t" name="error_pgb_not_ok_last_time">Last time of occurance of error pgb_not_ok</field>
+      
+      <field type="uint32_t" name="error_isofet_off_count">Occurance count of error isofet_off</field>
+      <field type="uint32_t" name="error_isofet_off_last_time">Last time of occurance of error isofet_off</field>
+      
+      <field type="uint32_t" name="error_timeout_count">Occurance count of error timeout</field>
+      <field type="uint32_t" name="error_timeout_last_time">Last time of occurance of error timeout</field>
+      
+      <field type="uint32_t" name="error_pfi_count">Occurance count of error pfi</field>
+      <field type="uint32_t" name="error_pfi_last_time">Last time of occurance of error pfi</field>
+      
+      <field type="uint32_t" name="error_pgb_count">Occurance count of error pgb</field>
+      <field type="uint32_t" name="error_pgb_last_time">Last time of occurance of error pgb</field>
+      
+      <field type="uint32_t" name="error_pgs_count">Occurance count of error pgs</field>
+      <field type="uint32_t" name="error_pgs_last_time">Last time of occurance of error pgs</field>
+      
+      <field type="uint32_t" name="error_int_count">Occurance count of error int</field>
+      <field type="uint32_t" name="error_int_last_time">Last time of occurance of error int</field>
+      
+      
     </message>
     
 
