@@ -494,23 +494,11 @@
       <!-- Сделаем тут много записей для каждого сообщения
            Много потому что мавлинк умеет оптимизировать нули в конце сообщения
            и если спутников будет меньше чем можно - они не будут занимать линее место -->
-      <!-- Определим только 4 спутника, это необходимый минимум для построения 3d фикса -->
-      <!-- В телеметрию нужно скидывать 4 спутника со самыми свежими эфемиридами ? -->
-      <field type="uint8_t" name="svid_0">Satellite 0 ID</field>
-      <field type="uint8_t" name="svflag_0">Information flags</field>
-      <field type="uint8_t" name="age_0">Ephemierides and almanach age</field>
-
-      <field type="uint8_t" name="svid_1">Satellite 1 ID</field>
-      <field type="uint8_t" name="svflag_1">Information flags</field>
-      <field type="uint8_t" name="age_1">Ephemierides and almanach age</field>
-
-      <field type="uint8_t" name="svid_2">Satellite 2 ID</field>
-      <field type="uint8_t" name="svflag_2">Information flags</field>
-      <field type="uint8_t" name="age_2">Ephemierides and almanach age</field>
-
-      <field type="uint8_t" name="svid_3">Satellite 3 ID</field>
-      <field type="uint8_t" name="svflag_3">Information flags</field>
-      <field type="uint8_t" name="age_3">Ephemierides and almanach age</field>
+      <field type="uint8_t" name="satellites_total">Total amount of satellites</field>
+      <field type="uint8_t" name="satellites_with_ephs">Amount of sattelites with ephemerides</field>
+      <field type="uint8_t" name="satellites_with_alms">Amount of sattelites with almanacs</field>
+      <field type="uint8_t" name="satellites_with_ephs_and_alms">Amount of satellites with both alms and ephs</field>
+      <field type="uint8_t" name="sattelites_healthy">Amount of healthy sattelites</field>
     </message>
 
     <!--  Payload messages. Id range: 50200 - 50299  -->
@@ -874,7 +862,9 @@
       <field type="uint32_t" name="time_us" units="us">Millionth of a second</field>
 
       <field type="uint8_t" name="area_id">Roze mechanism area id</field>
-      <field type="uint8_t" name="active_time" units="s">Roze mechanism active phase time</field>
+      <field type="uint16_t" name="pulse_count">Roze mechanism pulses count</field>
+      <field type="uint16_t" name="pulse_duration" units="ms">Roze mechanism pulse period</field>
+      <field type="uint16_t" name="pulse_duty_cycle">Roze mechanism duty cycle (0xFFFF - burn contineously, 0x0000 - no burn at all</field>
     </message>
 
     <message id="51102" name="CMD_ACTIVATE_COMMAND">
@@ -883,7 +873,9 @@
       <field type="uint32_t" name="time_us" units="us">Millionth of a second</field>
 
       <field type="uint8_t" name="area_id">Roze mechanism area id</field>
-      <field type="uint8_t" name="active_time" units="s">Roze mechanism active phase time</field>
+      <field type="uint16_t" name="pulse_count">Roze mechanism pulses count</field>
+      <field type="uint16_t" name="pulse_duration" units="ms">Roze mechanism pulse period</field>
+      <field type="uint16_t" name="pulse_duty_cycle">Roze mechanism duty cycle (0xFFFF - burn contineously, 0x0000 - no burn at all</field>
     </message>
 
     <message id="51103" name="IDLE_COMMAND">
