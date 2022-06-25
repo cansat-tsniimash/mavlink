@@ -811,6 +811,18 @@
       
       
     </message>
+
+    <message id="50402" name="ARK_SP_DEPLOYMENT_STATE">
+      <description>
+        This message contains information about 
+      </description>
+
+      <field type="uint64_t" name="time_s" units="s">Time since the Unix epoch</field>
+      <field type="uint32_t" name="time_us" units="us">Millionth of a second</field>
+      <field type="uint32_t" name="time_steady" units="ms">Steady time scale</field>
+
+      <field type="uint8_t[4]" name="is_open">Is true of solar panel is opened. False otherwise</field>
+    </message>
     
 
     <!--  Antenna system messages. Id range: 51000 - 51099  -->
